@@ -6,6 +6,7 @@ aliases=(
     g        "$PROJECTS_DIR/gma"
     gm       "$PROJECTS_DIR/gma/mars-plus/development/app/mars-plus"
     gmi      "$PROJECTS_DIR/gma/mars-plus-infra"
+    gmd      "$PROJECTS_DIR/gma/mars-plus-doc"
     gmt      "$PROJECTS_DIR/gma/testrunner.mars-plus/development/app/mars-plus"
     oc       "$PROJECTS_DIR/sg/opencash"
     b        "$PROJECTS_DIR/sg/sgeb.me"
