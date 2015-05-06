@@ -16,6 +16,9 @@ aliases=(
     bin      "$USR_DIR/bin"
     dotfiles "$DOTFILES_DIR"
     df       "$DOTFILES_DIR"
+
+    acdcli   "$PROJECTS_DIR/go/src/github.com/sgeb/acdcli"
+    go-acd   "$PROJECTS_DIR/go/src/github.com/sgeb/go-acd"
 )
 
 cd ${aliases[${1:-d}]}
