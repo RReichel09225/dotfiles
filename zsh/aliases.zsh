@@ -1,5 +1,5 @@
 # Unalias commands defined by prezto
-unalias d 2>/dev/null
+alias d >/dev/null 2>&1 && unalias d 2>/dev/null
 
 alias dns-flush="sudo killall -HUP mDNSResponder"
 alias als="alias | grep -i --"
@@ -38,6 +38,11 @@ alias gws='git status --ignore-submodules=${_git_status_ignore_submodules} --sho
 alias gwm='git mv'
 alias gwcx='git clean -ndx'
 alias gwCx='git clean -fdx'
+
+# By default zprezto aliases gpf to git push --force
+# I find this too dangerous and prefer explicitly passing --force
+alias gpf >/dev/null 2>&1 && unalias gpf
+# alias gpF='git push --force'
 
 # Update the ref for head on master
 # e.g. gum <SHA>
