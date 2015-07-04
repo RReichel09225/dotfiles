@@ -39,6 +39,9 @@ alias gwm='git mv'
 alias gwcx='git clean -ndx'
 alias gwCx='git clean -fdx'
 
+# Create an empty branch
+alias gbC='git checkout --orphan'
+
 # By default zprezto aliases gpf to git push --force
 # I find this too dangerous and prefer explicitly passing --force
 alias gpf >/dev/null 2>&1 && unalias gpf
