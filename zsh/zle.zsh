@@ -113,3 +113,9 @@ function _git-root-absolute {
 }
 zle -N _git-root-absolute
 bindkey "\eR" _git-root-absolute
+
+# Navigate word forward/backward with alt+left/right
+# bindkey '^[[1;9C' forward-word
+bindkey '\e\e[C' forward-word
+# bindkey '^[[1;9D' backward-word
+bindkey '\e\e[D' backward-word
