@@ -1,2 +1,2 @@
 # without arg, call with all files/dirs in $_FFOUND as arg
-${EDITOR:-nano} "${(f)$(fn $1)}"
+${VISUAL:-${EDITOR:-nano}} "${(f)$(fn $1)}"
