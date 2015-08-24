@@ -213,4 +213,16 @@ Bundle 'reedes/vim-wordy'
 Bundle 'terryma/vim-expand-region'
 
 " Golang support
-Bundle 'jnwhiteh/vim-golang'
+Bundle 'fatih/vim-go'
+
+" A startup screen for vim
+Bundle 'mhinz/vim-startify'
+
+" Highlighting for hive
+Bundle 'autowitch/hive.vim'
+
+" Data entry for ledger (ledger-cli.org)
+Bundle 'ledger/vim-ledger'
+
+" Make FocusGained, FocusLost, autoread work in vim inside tmux
+Bundle 'tmux-plugins/vim-tmux-focus-events'

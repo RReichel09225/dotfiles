@@ -14,6 +14,9 @@ set -g base-index 1
 # client connected to *that window*. Much more reasonable.
 setw -g aggressive-resize on
 
+# Enable propagation of focus events
+set -g focus-events on
+
 # Activity monitoring: indicator when activity happened on non-active window
 setw -g monitor-activity on
 # but no verbose message about activity
