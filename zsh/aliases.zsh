@@ -1,7 +1,11 @@
 # Unalias commands defined by prezto
 alias d >/dev/null 2>&1 && unalias d 2>/dev/null
 
-alias dns-flush="sudo killall -HUP mDNSResponder"
+# Clear DNS cache
+# alias dns-flush="sudo killall -HUP mDNSResponder"
+# For mavericks, this is now:
+alias dns-flush="dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
+
 alias als="alias | grep -i --"
 
 alias ack="nocorrect ack --color-lineno=yellow --color-filename=blue --color-match='black on_red'"
