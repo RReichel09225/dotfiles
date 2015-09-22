@@ -46,9 +46,10 @@ alias gwCx='git clean -fdx'
 # Create an empty branch
 alias gbC='git checkout --orphan'
 
-# Override `gbl` to show upstream tracking branch name as well
+# Override `gbl` and `gbL` to show upstream tracking branch name as well
 # default is to alias to 'git branch -v', not showing upstream
 alias gbl='git branch -vv'
+alias gbL='git branch -avv'
 
 # By default zprezto aliases gpf to git push --force
 # I find this too dangerous and prefer explicitly passing --force
