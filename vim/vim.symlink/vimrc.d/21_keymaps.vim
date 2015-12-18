@@ -15,8 +15,9 @@ nnoremap k gk
 vnoremap j gj
 vnoremap k gk
 
-" Fast saving
-nnoremap <leader>w :w!<cr>
+" Toggle line wrap
+nnoremap <silent> <leader>w :set wrap!<CR>
+
 
 " Fast editing of the .vimrc
 nnoremap <leader>e :e! ~/.vimrc<cr>
