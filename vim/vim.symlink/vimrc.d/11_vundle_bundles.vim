@@ -226,3 +226,18 @@ Bundle 'ledger/vim-ledger'
 
 " Make FocusGained, FocusLost, autoread work in vim inside tmux
 Bundle 'tmux-plugins/vim-tmux-focus-events'
+
+" Vim plugin to control splits with visual selections or text objects
+" <C-W>gr - resize split to visual selection (similar to :VSResize)
+" <C-W>gss - split out visual selection (similar to :VSSplit)
+" <C-W>gsa - split out visual selection above (similar to :VSSplitAbove)
+" <C-W>gsb - split out visual selection below (similar to :VSSplitBelow)
+"
+" For example, to split out to the paragraph around the cursor, just type:
+" vip<C-W>gss
+"
+" To work on text objects directly, the same mappings are provided in
+" operator pending mode. So this also works:
+"
+" <C-W>gssip
+Bundle 'wellle/visual-split.vim'
