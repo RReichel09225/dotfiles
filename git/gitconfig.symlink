@@ -52,9 +52,10 @@
 
 [diff]
     tool = vimdiff
+    compactionHeuristic = true
 
 [color]
-	ui = true
+    ui = true
 
 [color "branch"]
     current = yellow reverse
@@ -72,5 +73,9 @@
     added = yellow
     changed = green
     untracked = cyan
+
 [push]
-	default = simple
+    default = simple
+
+[hub]
+    protocol = https
