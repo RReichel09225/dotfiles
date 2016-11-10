@@ -4,7 +4,9 @@
 
 DOTFILES_ROOT="$HOME/usr/dotfiles"
 
-set -e
+set -o nounset
+set -o errexit
+set -o pipefail
 
 echo ''
 
@@ -136,17 +138,17 @@ clone_dotfiles
 install_dotfiles_symlinks
 
 # If we are on a mac, lets install and setup homebrew
-if [ "$(uname -s)" == "Darwin" ]
-then
-    . osx/setup.sh
-    # info "installing dependencies"
-    # if . bin/dot > /tmp/dotfiles-dot 2>&1
-    # then
-    #     success "dependencies installed"
-    # else
-    #     fail "error installing dependencies"
-    # fi
-fi
+# if [ "$(uname -s)" == "Darwin" ]
+# then
+#     . osx/setup.sh
+#     # info "installing dependencies"
+#     # if . bin/dot > /tmp/dotfiles-dot 2>&1
+#     # then
+#     #     success "dependencies installed"
+#     # else
+#     #     fail "error installing dependencies"
+#     # fi
+# fi
 
 echo ''
 echo '  All installed!'
