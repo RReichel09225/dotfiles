@@ -1,0 +1,37 @@
+#
+# Set the following variables before sourcing this file:
+#
+# * $my_account
+# * $my_address
+# * $my_folder
+#
+
+
+# ----------------------------------------------------
+# Dynamic Folder Options -----------------------------
+# ----------------------------------------------------
+
+set from          = "Serge Gebhardt <$my_address>"
+set signature     = "$my_mutt_path/signature-$my_account"
+
+set folder    = $my_folder
+set spoolfile = "+INBOX"
+set mbox      = "+[Gmail]/All Mail"
+set postponed = "+[Gmail]/Drafts"
+set record    = "+[Gmail]/Sent Mail"
+
+mailboxes = +INBOX +[Gmail]/Drafts +[Gmail]/'Sent Mail' +[Gmail]/Spam +[Gmail]/Trash
+
+# set sendmail      = "/usr/local/share/msmtp/scripts/msmtpq/msmtpq -a $my_account"
+# set sendmail_wait = 0
+# set query_command = "goobook -c ~/.mail/goobook/$my_account/config query %s"
+
+# set smtp_url  = "smtp://$my_address@smtp.gmail.com:587/"
+# set smtp_user = $my_address
+
+
+# ----------------------------------------------------
+# Source separate configs ----------------------------
+# ----------------------------------------------------
+
+source $my_mutt_path/muttrc.accounts.dynamic.keybindings

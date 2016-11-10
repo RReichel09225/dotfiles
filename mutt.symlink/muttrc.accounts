@@ -1,0 +1,45 @@
+# ----------------------------------------------------
+# Mailbox / Account Options --------------------------
+# ----------------------------------------------------
+
+set realname = "Serge Gebhardt"
+source $my_mutt_path/muttrc.accounts.private
+
+set my_folder_sg = "imaps://$my_address_sg@imap.gmail.com/"
+set my_folder_tw = "imaps://$my_address_tw@imap.gmail.com/"
+
+###
+
+account-hook . "unset imap_user; unset imap_pass; unset tunnel"
+
+account-hook $my_folder_sg "\
+    set imap_user = $my_address_sg; \
+    set imap_pass = $my_pass_sg"
+
+account-hook $my_folder_tw "\
+    set imap_user = $my_address_tw; \
+    set imap_pass = $my_pass_tw"
+
+###
+
+# This is the primary mailbox
+# Needed to trigger matching the folder-hooks
+set folder = $my_folder_sg
+set spoolfile = +INBOX
+
+# Collapse all thread when opening a new folder
+folder-hook . "exec collapse-all"
+
+folder-hook $my_folder_sg "\
+    set my_account = sg; \
+    set my_address = $my_address_sg; \
+    set my_folder  = $my_folder_sg; \
+    set hostname   = gmail.com; \
+    source $my_mutt_path/muttrc.accounts.dynamic"
+
+folder-hook $my_folder_tw "\
+    set my_account = tw; \
+    set my_address = $my_address_tw; \
+    set my_folder  = $my_folder_tw; \
+    set hostname   = thoughtworks.com; \
+    source $my_mutt_path/muttrc.accounts.dynamic"

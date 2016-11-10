@@ -1,0 +1,37 @@
+text/html; qlmanage -p %s; nametemplate=%s.html
+# text/html; lynx -dump %s; nametemplate=%s.html; copiousoutput
+application/pdf; qlmanage -p %s; nametemplate=%s.pdf
+image/jpg; qlmanage -p %s; nametemplate=%s.jpg
+image/jpeg; qlmanage -p %s; nametemplate=%s.jpg
+image/pjpeg; qlmanage -p %s; nametemplate=%s.jpg
+image/png; qlmanage -p %s; nametemplate=%s.png
+image/gif; qlmanage -p %s; nametemplate=%s.gif
+text/*; open %s
+application/*; open %s
+
+
+# # MS Word documents
+# application/msword; ~/.mutt/view_attachment.sh %s "-" '/Applications/TextEdit.app'
+
+# # Images
+# image/jpg; ~/.mutt/view_attachment.sh %s jpg
+# image/jpeg; ~/.mutt/view_attachment.sh %s jpg
+# image/pjpeg; ~/.mutt/view_attachment.sh %s jpg
+# image/png; ~/.mutt/view_attachment.sh %s png
+# image/gif; ~/.mutt/view_attachment.sh %s gif
+
+# # View images inline
+# image/*; ~/.mutt/view_inline_image.sh %s; copiousoutput
+
+# # PDFs
+# application/pdf; ~/.mutt/view_attachment.sh %s pdf
+
+# # HTML
+# text/html; ~/.mutt/view_attachment.sh %s html
+# # text/html; elinks %s; nametemplate=%s.html
+# text/html; elinks -no-numbering -no-references -no-home -dump-charset %{charset} -dump %s; nametemplate=%s.html; copiousoutput
+
+# # Unidentified files
+# application/octet-stream; ~/.mutt/view_attachment.sh %s "-"
+
+# text/plain; less %s

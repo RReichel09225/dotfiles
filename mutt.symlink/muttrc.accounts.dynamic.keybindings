@@ -1,0 +1,47 @@
+#
+# Set the following variables before sourcing this file:
+#
+# * $my_account
+#
+
+
+# ----------------------------------------------------
+# Dynamic Key Bindings -------------------------------
+# ----------------------------------------------------
+
+# Gmail navigation key bindings
+macro index,pager gi "<change-folder>!<return>" "Go to Inbox"    # Folder `!' is $spoolfile
+macro index,pager gs "<change-folder>=$my_account/[Gmail].Starred<return>" "Go to Starred"
+macro index,pager gt "<change-folder><<return>" "Go to Sent"     # Folder `<' is $record
+macro index,pager gd "<change-folder>=$my_account/[Gmail].Drafts<return>" "Go to Drafts"
+macro index,pager ga "<change-folder>><return>" "Go to All mail" # Folder `>' is $mbox
+macro index,pager gb "<change-folder>-<return>" "Go to previous folder"
+macro index,pager gl "<change-folder>?<change-dir><kill-line>=$my_account<return>/" "Go to folder (searching)"
+macro index,pager gL "<change-folder>?<change-dir><kill-line>=$my_account<return>" "Go to folder (browsing)"
+
+# Gmail tag (searching)
+macro index l "<tag-prefix><copy-message>?<change-dir><kill-line>=$my_account<return>/" "copy tagged messages to a mailbox (searching)"
+macro pager l "<copy-message>?<change-dir><kill-line>=$my_account<return>/" "copy tagged messages to a mailbox (searching)"
+
+# Gmail tag (browsing)
+macro index L "<tag-prefix><copy-message>?<change-dir><kill-line>=$my_account<return>" "copy tagged messages to a mailbox (browsing)"
+macro pager L "<copy-message>?<change-dir><kill-line>=$my_account<return>" "copy tagged messages to a mailbox (browsing)"
+
+# Gmail archive (searching)
+macro index v "<tag-prefix><save-message>?<change-dir><kill-line>-$my_account<return>/" "move tagged messages to a mailbox (searching)"
+macro pager v "<save-message>?<change-dir><kill-line>=$my_account<return>/" "move tagged messages to a mailbox (searching)"
+
+# Gmail archive (browsing)
+macro index V "<tag-prefix><save-message>?<change-dir><kill-line>=$my_account<return>" "move tagged messages to a mailbox (browsing)"
+macro pager V "<save-message>?<change-dir><kill-line>=$my_account<return>" "move tagged messages to a mailbox (browsing)"
+
+# Gmail archive
+macro index e "<enter-command> unset trash<enter><tag-prefix><delete-message>" "Archive tagged messages"
+macro pager e "<enter-command> unset trash<enter><delete-message>" "Archive message"
+
+# Gmail delete
+macro index \# "<enter-command> set trash=\"=$my_account/[Gmail].Trash\"<enter><tag-prefix><delete-message>" "Delete tagged messages"
+macro pager \# "<enter-command> set trash=\"=$my_account/[Gmail].Trash\"<enter><delete-message>" "Delete message"
+
+# Reload goobook db
+macro index,pager ,c "<shell-escape>goobook -c ~/.mail/goobook/$my_account/config reload<enter>" "Goobook reload"

@@ -1,0 +1,98 @@
+# ----------------------------------------------------
+# Mixed Key Bindings ---------------------------------
+# ----------------------------------------------------
+
+# The following are similar to Gmail key bindings
+
+bind index,pager a  group-reply
+bind index,pager r  reply
+bind index,pager d  noop         # don't delete with d
+
+bind generic,index,pager t noop   # do not tag with t
+bind generic,index x tag-entry    # tag with x
+bind pager         x tag-message  # tag with x
+
+bind index,pager c  mail          # compose new mail message
+
+# Misc helper macros
+
+macro index,pager o "<shell-escape>cd ~/.mail/bin; ./offlineimap-run.sh<enter>" "run offlineimap"
+macro index,pager O "<shell-escape>cd ~/.mail/bin; ./msmtp-run.sh<enter>"       "run msmtp"
+
+macro index,pager,attach,compose ,u "\
+<enter-command> set my_pipe_decode=\$pipe_decode pipe_decode<return>\
+<enter-command> set my_wait_key=\$wait_key; unset wait_key<return>\
+<pipe-message>urlview<return>\
+<enter-command> set pipe_decode=\$my_pipe_decode; unset my_pipe_decode<return>\
+<enter-command> set wait_key=\$my_wait_key; unset my_wait_key<return>" \
+"call urlview to extract URLs out of a message"
+
+macro index,pager ,b "\
+<enter-command> set my_pipe_decode=\$pipe_decode pipe_decode<return>\
+<enter-command> set my_wait_key=\$wait_key; unset wait_key<return>\
+<pipe-message>w3m<return>\
+<enter-command> set pipe_decode=\$my_pipe_decode; unset my_pipe_decode<return>\
+<enter-command> set wait_key=\$my_wait_key; unset my_wait_key<return>" \
+"call urlview to extract URLs out of a message"
+
+macro index,pager ,o "\
+<enter-command> set my_pipe_decode=\$pipe_decode pipe_decode=no<return>\
+<enter-command> set my_wait_key=\$wait_key; unset wait_key<return>\
+<pipe-message>~/.mail/mutt/open_in_gmail.rb<enter>\
+<enter-command> set pipe_decode=\$my_pipe_decode; unset my_pipe_decode<return>\
+<enter-command> set wait_key=\$my_wait_key; unset my_wait_key<return>" \
+"open message in Gmail interface using system browser"
+
+
+# ----------------------------------------------------
+# Index Key Bindings ---------------------------------
+# ----------------------------------------------------
+
+bind index gg        first-entry
+bind index G         last-entry
+
+bind index <tab>     sync-mailbox
+bind index <space>   collapse-thread
+bind index /         limit  # limit instead of search in index
+
+# Jump between inboxes
+macro index 1 "<change-folder>$my_folder_sg<return>" "jump to sg inbox"
+macro index 2 "<change-folder>$my_folder_tw<return>" "jump to tw inbox"
+
+# Ctrl-R to mark all as read
+# macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all messages as read"
+
+macro index,pager ,r "\
+<change-folder>><return>\
+<tag-pattern>!~y\\Inbox ~N<enter>\
+<tag-prefix><clear-flag>N\
+<untag-pattern>~A<enter>\
+<change-folder>-<enter>" \
+"mark all archived messages as read"
+
+# ----------------------------------------------------
+# Pager Key Bindings ---------------------------------
+# ----------------------------------------------------
+
+bind pager <tab>  sync-mailbox
+bind pager k      previous-line
+bind pager j      next-line
+bind pager gg     top
+bind pager G      bottom
+bind pager A      view-attachments
+
+# Toggling solved through sourcing of different files. Is there a better way to
+# do this?
+# source ./.mail/mutt/muttrc.pager.macro-toggle-wrap-0
+
+
+# ----------------------------------------------------
+# Line Editor Bindings -------------------------------
+# ----------------------------------------------------
+
+# Important to navigate to folders with spaces in name
+bind editor <space> noop
+# Auto-complete filenames and aliases
+bind editor ^T complete
+# Auto-complete contacts
+bind editor <Tab> complete-query
