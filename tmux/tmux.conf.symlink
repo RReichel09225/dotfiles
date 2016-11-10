@@ -25,9 +25,11 @@ set -g visual-activity off
 # Status bar format
 set-option -g status-position bottom
 set -g status-left ''
-set -g status-right '%a %d-%b %H:%M'
+# For #{prefix_highlight} see plugin at
+# https://github.com/tmux-plugins/tmux-prefix-highlight
+set -g status-right '#{prefix_highlight} %a %d-%b %H:%M'
 setw -g window-status-format '#F#I #W '
-setw -g window-status-current-format '#F#I [#W] '
+setw -g window-status-current-format '#{?window_zoomed_flag,#[fg=yellow],}#F#I [#W] '
 
 # Show status line messages for 5 second
 set -g display-time 5000
@@ -35,12 +37,10 @@ set -g display-time 5000
 # Show pane numbers for 2 second
 set -g display-panes-time 2000
 
-# Enable mouse support. Can be temporarily turned off in iTerm2 by
-# pressing option (aka alt)
-set -g mode-mouse on
-set -g mouse-resize-pane on
-set -g mouse-select-pane on
-set -g mouse-select-window on
+# Enable mouse support. Mouse selection can be temporarily turned off in iTerm2
+# by pressing option (aka alt). Also see mouse plugin at the bottom of this
+# file.
+set -g mouse
 
 # use reattach-to-user-namespace if available (work around sharing of pasteboard
 # in macosx)
@@ -115,6 +115,9 @@ bind-key -n C-S-Right swap-window -t +1
 # Restore the binding to choose-tree
 bind-key S choose-tree
 
+# Ctrl-Space to zoom current pane
+bind-key -n C-Space resize-pane -Z
+
 
 #### COLOUR
 
@@ -153,3 +156,25 @@ set-option -g display-panes-colour colour8 # gray
 
 # clock
 set-window-option -g clock-mode-colour blue
+
+# TPM itself
+set -g @plugin 'tmux-plugins/tpm'
+
+# A plugin that enhances tmux search
+set -g @plugin 'tmux-plugins/tmux-copycat'
+set -g @copycat_hash_search 'C-h'
+
+# Start copy mode when scrolling up and exit when scrolling down to bottom.
+set -g @plugin 'nhdaly/tmux-scroll-copy-mode'
+
+# Tmux key bindings for quick opening of a highlighted file or url
+set -g @plugin 'tmux-plugins/tmux-open'
+
+# Plugin that highlights when you press tmux prefix key
+set -g @plugin 'tmux-plugins/tmux-prefix-highlight'
+
+# Tmux plugin for copying to system clipboard
+set -g @plugin 'tmux-plugins/tmux-yank'
+
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run '~/.tmux/plugins/tpm/tpm'
