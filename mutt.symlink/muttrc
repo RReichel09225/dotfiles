@@ -115,26 +115,6 @@ source $my_mutt_path/muttrc.plugins
 
 # macro pager \Cu "|urlview<enter>" "call urlview to open links"
 
-# #--------#
-# # Macros #
-# #--------#
-# macro index <F1> "y12<return><return>" # jump to mailbox number 12 (user1 inbox)
-# macro index <F2> "y6<return><return>"  # jump to mailbox number 6 (user2 inbox)
-# #-----------------------#
-# # Gmail-specific macros #
-# #-----------------------#
-# # to delete more than 1 message, just mark them with "t" key and then do "d" on them
-# macro index d ";s+[Gmail]/Trash<enter><enter>" "Move to Gmail's Trash"
-# # delete message, but from pager (opened email)
-# macro pager d "s+[Gmail]/Trash<enter><enter>"  "Move to Gmail's Trash"
-# # undelete messages
-# macro index u ";s+INBOX<enter><enter>"         "Move to Gmail's INBOX"
-# macro pager u "s+INBOX<enter><enter>"          "Move to Gmail's INBOX"
-
-# # to delete more than 1 message, just mark them with "t" key and then do "d" on them
-# macro index d ";s+[Gmail]/Trash<enter><enter>" "Move to Gmail's Trash"
-# # delete message, but from pager (opened email)
-# macro pager d "s+[Gmail]/Trash<enter><enter>"  "Move to Gmail's Trash"
 # # undelete messages
 # macro index u ";s+INBOX<enter><enter>"         "Move to Gmail's INBOX"
 # macro pager u "s+INBOX<enter><enter>"          "Move to Gmail's INBOX"

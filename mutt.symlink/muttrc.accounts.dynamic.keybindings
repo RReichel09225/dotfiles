@@ -1,9 +1,8 @@
 #
 # Set the following variables before sourcing this file:
 #
-# * $my_account
+# * $my_starred_folder
 #
-
 
 # ----------------------------------------------------
 # Dynamic Key Bindings -------------------------------
@@ -11,37 +10,49 @@
 
 # Gmail navigation key bindings
 macro index,pager gi "<change-folder>!<return>" "Go to Inbox"    # Folder `!' is $spoolfile
-macro index,pager gs "<change-folder>=$my_account/[Gmail].Starred<return>" "Go to Starred"
+macro index,pager gs "<change-folder>$my_starred_folder<return>" "Go to Starred"
 macro index,pager gt "<change-folder><<return>" "Go to Sent"     # Folder `<' is $record
-macro index,pager gd "<change-folder>=$my_account/[Gmail].Drafts<return>" "Go to Drafts"
+macro index,pager gd "<change-folder>$postponed<return>" "Go to Drafts"
 macro index,pager ga "<change-folder>><return>" "Go to All mail" # Folder `>' is $mbox
 macro index,pager gb "<change-folder>-<return>" "Go to previous folder"
-macro index,pager gl "<change-folder>?<change-dir><kill-line>=$my_account<return>/" "Go to folder (searching)"
-macro index,pager gL "<change-folder>?<change-dir><kill-line>=$my_account<return>" "Go to folder (browsing)"
+macro index,pager gl "<change-folder>?/" "Go to folder (searching)"
+macro index,pager gL "<change-folder>?" "Go to folder (browsing)"
+
+# The following are when browsing local folders (e.g. when syncing via maildir)
+# macro index,pager gl "<change-folder>?<change-dir><kill-line>=$my_account<return>/" "Go to folder (searching)"
+# macro index,pager gL "<change-folder>?<change-dir><kill-line>=$my_account<return>" "Go to folder (browsing)"
 
 # Gmail tag (searching)
-macro index l "<tag-prefix><copy-message>?<change-dir><kill-line>=$my_account<return>/" "copy tagged messages to a mailbox (searching)"
-macro pager l "<copy-message>?<change-dir><kill-line>=$my_account<return>/" "copy tagged messages to a mailbox (searching)"
+macro index l "<tag-prefix><copy-message>?/" "copy tagged messages to a mailbox (searching)"
+macro pager l "<copy-message>?/" "copy tagged messages to a mailbox (searching)"
 
 # Gmail tag (browsing)
-macro index L "<tag-prefix><copy-message>?<change-dir><kill-line>=$my_account<return>" "copy tagged messages to a mailbox (browsing)"
-macro pager L "<copy-message>?<change-dir><kill-line>=$my_account<return>" "copy tagged messages to a mailbox (browsing)"
+macro index L "<tag-prefix><copy-message>?" "copy tagged messages to a mailbox (browsing)"
+macro pager L "<copy-message>?" "copy tagged messages to a mailbox (browsing)"
 
 # Gmail archive (searching)
-macro index v "<tag-prefix><save-message>?<change-dir><kill-line>-$my_account<return>/" "move tagged messages to a mailbox (searching)"
-macro pager v "<save-message>?<change-dir><kill-line>=$my_account<return>/" "move tagged messages to a mailbox (searching)"
+macro index v "<tag-prefix><save-message>?/" "move tagged messages to a mailbox (searching)"
+macro pager v "<save-message>?/" "move tagged messages to a mailbox (searching)"
 
 # Gmail archive (browsing)
-macro index V "<tag-prefix><save-message>?<change-dir><kill-line>=$my_account<return>" "move tagged messages to a mailbox (browsing)"
-macro pager V "<save-message>?<change-dir><kill-line>=$my_account<return>" "move tagged messages to a mailbox (browsing)"
+macro index V "<tag-prefix><save-message>?" "move tagged messages to a mailbox (browsing)"
+macro pager V "<save-message>?" "move tagged messages to a mailbox (browsing)"
 
 # Gmail archive
-macro index e "<enter-command> unset trash<enter><tag-prefix><delete-message>" "Archive tagged messages"
-macro pager e "<enter-command> unset trash<enter><delete-message>" "Archive message"
+# Requires trash patch
+# Works with Gmail default settings for IMAP:
+# "Auto-expurge on" and "Archive the message (default)"
+macro index e "<tag-prefix><purge-message>" "Archive tagged messages"
+macro pager e "<purge-message>" "Archive message"
+ifndef trash "bind index,pager e  noop"
 
 # Gmail delete
-macro index \# "<enter-command> set trash=\"=$my_account/[Gmail].Trash\"<enter><tag-prefix><delete-message>" "Delete tagged messages"
-macro pager \# "<enter-command> set trash=\"=$my_account/[Gmail].Trash\"<enter><delete-message>" "Delete message"
+# Requires trash patch
+# Works with Gmail default settings for IMAP:
+# "Auto-expurge on" and "Archive the message (default)"
+macro index \# "<tag-prefix><delete-message>" "Delete tagged messages"
+macro pager \# "<delete-message>" "Delete message"
+ifndef trash "bind index,pager \\#  noop"
 
 # Reload goobook db
-macro index,pager ,c "<shell-escape>goobook -c ~/.mail/goobook/$my_account/config reload<enter>" "Goobook reload"
+# macro index,pager ,c "<shell-escape>goobook -c ~/.mail/goobook/$my_account/config reload<enter>" "Goobook reload"

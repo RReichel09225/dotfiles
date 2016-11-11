@@ -19,8 +19,11 @@ set spoolfile = "+INBOX"
 set mbox      = "+[Gmail]/All Mail"
 set postponed = "+[Gmail]/Drafts"
 set record    = "+[Gmail]/Sent Mail"
+set my_starred_folder  = "+[Gmail]/Starred"
+set my_spam_folder  = "+[Gmail]/Spam"
+ifdef trash 'set trash = "+[Gmail]/Trash"'
 
-mailboxes = +INBOX +[Gmail]/Drafts +[Gmail]/'Sent Mail' +[Gmail]/Spam +[Gmail]/Trash
+mailboxes = ! $my_starred_folder < $postponed > $my_spam_folder $trash
 
 # set sendmail      = "/usr/local/share/msmtp/scripts/msmtpq/msmtpq -a $my_account"
 # set sendmail_wait = 0

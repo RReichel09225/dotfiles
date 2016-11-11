@@ -6,7 +6,14 @@
 # $ gem install mail
 #
 # Configure Mutt with:
-# macro index,pager V "<enter-command>unset pipe_decode<enter><pipe-message>~/.mutt/open_in_gmail.rb<enter><enter-command>set pipe_decode=$pipe_decode<enter>"
+#
+# macro index,pager V "\
+# <enter-command> set my_pipe_decode=\$pipe_decode; unset pipe_decode<return>\
+# <enter-command> set my_wait_key=\$wait_key; unset wait_key<return>\
+# <pipe-message>$my_mutt_path/open_in_gmail.rb<enter>\
+# <enter-command> set pipe_decode=\$my_pipe_decode; unset my_pipe_decode<return>\
+# <enter-command> set wait_key=\$my_wait_key; unset my_wait_key<return>" \
+# "open message in Gmail interface using system browser"
 #
 # Sometimes this script might print errors or other useful info. Set the
 # following in Mutt to pause return until key pressed.
