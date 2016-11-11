@@ -2,6 +2,7 @@
 # Set the following variables before sourcing this file:
 #
 # * $my_account
+# * $my_pass
 # * $my_address
 # * $my_folder
 #
@@ -25,12 +26,15 @@ ifdef trash 'set trash = "+[Gmail]/Trash"'
 
 mailboxes = ! $my_starred_folder < $postponed > $my_spam_folder $trash
 
+set smtp_url  = "smtp://$my_address@smtp.gmail.com:587/"
+set smtp_pass = $my_pass
+
+# necessary for Gmail, not sure why
+set smtp_authenticators = "gssapi:login"
+
 # set sendmail      = "/usr/local/share/msmtp/scripts/msmtpq/msmtpq -a $my_account"
 # set sendmail_wait = 0
 # set query_command = "goobook -c ~/.mail/goobook/$my_account/config query %s"
-
-# set smtp_url  = "smtp://$my_address@smtp.gmail.com:587/"
-# set smtp_user = $my_address
 
 
 # ----------------------------------------------------

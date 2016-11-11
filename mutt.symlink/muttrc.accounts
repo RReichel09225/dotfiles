@@ -33,6 +33,7 @@ folder-hook . "exec collapse-all"
 folder-hook $my_folder_sg "\
     set my_account = sg; \
     set my_address = $my_address_sg; \
+    set my_pass    = $my_pass_sg; \
     set my_folder  = $my_folder_sg; \
     set hostname   = gmail.com; \
     source $my_mutt_path/muttrc.accounts.dynamic"
@@ -40,6 +41,7 @@ folder-hook $my_folder_sg "\
 folder-hook $my_folder_tw "\
     set my_account = tw; \
     set my_address = $my_address_tw; \
+    set my_pass    = $my_pass_tw; \
     set my_folder  = $my_folder_tw; \
     set hostname   = thoughtworks.com; \
     source $my_mutt_path/muttrc.accounts.dynamic"
