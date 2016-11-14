@@ -1,6 +1,8 @@
 #
 # Set the following variables before sourcing this file:
 #
+# * $my_folder_sg
+# * $my_folder_tw
 # * $my_starred_folder
 #
 
@@ -53,6 +55,10 @@ ifndef trash "bind index,pager e  noop"
 macro index \# "<tag-prefix><delete-message>" "Delete tagged messages"
 macro pager \# "<delete-message>" "Delete message"
 ifndef trash "bind index,pager \\#  noop"
+
+# Jump between inboxes
+macro index - "<change-folder>$my_folder_sg<return>" "jump to sg inbox"
+macro index = "<change-folder>$my_folder_tw<return>" "jump to tw inbox"
 
 # Reload goobook db
 # macro index,pager ,c "<shell-escape>goobook -c ~/.mail/goobook/$my_account/config reload<enter>" "Goobook reload"

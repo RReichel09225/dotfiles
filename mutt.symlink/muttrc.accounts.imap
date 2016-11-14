@@ -1,9 +1,15 @@
 # ----------------------------------------------------
-# Mailbox / Account Options --------------------------
+# IMAP: Mailbox / Account Options --------------------
 # ----------------------------------------------------
 
+# Reset some shared variables and configuration
+unset folder
+unmailboxes *
+unhook *
+
+# Set proper configuration
 set realname = "Serge Gebhardt"
-source $my_mutt_path/muttrc.accounts.imap.private
+source $my_mutt_path/muttrc.accounts.private
 
 set my_folder_sg = "imaps://$my_address_sg@imap.gmail.com/"
 set my_folder_tw = "imaps://$my_address_tw@imap.gmail.com/"
@@ -22,8 +28,8 @@ account-hook $my_folder_tw "\
 
 ###
 
-# This is the primary mailbox
-# Needed to trigger matching the folder-hooks
+# Set new folder and spoolfile
+# relevant when switching between accounts backend
 set folder = $my_folder_sg
 set spoolfile = +INBOX
 
@@ -35,7 +41,7 @@ folder-hook $my_folder_sg "\
     set my_address = $my_address_sg; \
     set my_pass    = $my_pass_sg; \
     set my_folder  = $my_folder_sg; \
-    set hostname   = gmail.com; \
+    set hostname   = mail.gmail.com; \
     source $my_mutt_path/muttrc.accounts.imap.dynamic"
 
 folder-hook $my_folder_tw "\
@@ -45,3 +51,7 @@ folder-hook $my_folder_tw "\
     set my_folder  = $my_folder_tw; \
     set hostname   = thoughtworks.com; \
     source $my_mutt_path/muttrc.accounts.imap.dynamic"
+
+# Change to the primary inbox folder
+# Needed to trigger matching the folder-hooks
+push <change-folder>$my_folder_sg<enter>

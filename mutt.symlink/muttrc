@@ -3,7 +3,7 @@
 # ----------------------------------------------------
 #
 # path to the mutt directory
-set my_mutt_path = "~/.mutt"
+set my_mutt_path = "$HOME/.mutt"
 
 # where to store / cache stuff
 set header_cache = "$my_mutt_path/cache/headers"
@@ -88,7 +88,7 @@ set maildir_trash = yes
 # Source separate configs ----------------------------
 # ----------------------------------------------------
 
-source $my_mutt_path/muttrc.accounts.imap
+source $my_mutt_path/muttrc.accounts
 source $my_mutt_path/muttrc.ui
 source $my_mutt_path/muttrc.keybindings
 source $my_mutt_path/muttrc.plugins

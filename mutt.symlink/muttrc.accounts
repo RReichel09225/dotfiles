@@ -1,0 +1,18 @@
+# ----------------------------------------------------
+# Toggle between IMAP/notmuch accounts backend -------
+# ----------------------------------------------------
+
+# default accounts backend
+set my_backend = "imap"
+source $my_mutt_path/muttrc.accounts.$my_backend
+
+# Toggle accounts backend
+set my_backend_next = "notmuch"
+macro index ,b  "\
+<enter-command> set my_backend_current = \$my_backend<return>\
+<enter-command> source \$my_mutt_path/muttrc.accounts.\$my_backend_next<return>\
+<enter-command> set my_backend = \$my_backend_next<return>\
+<enter-command> set my_backend_next = \$my_backend_current<return>\
+<enter-command> unset my_backend_current<return>\
+<enter-command> set ?my_backend<return>" \
+"toggle accounts backend"

@@ -20,6 +20,10 @@ set sort_re                                # thread based on regex
 set reply_regexp = "^((([Rr][Ee]?(\[[0-9]+\])?|[Aa]ntwort|[Aa][Ww]): *)?(\[[^]]+\] *)?)*"
 set to_chars=" TTCFL"      # Replace + by T.
 
+# show when thread is missing a message
+unset hide_missing
+unset hide_top_missing
+
 
 # ----------------------------------------------------
 # Pager View Options ---------------------------------

@@ -21,6 +21,11 @@ macro index,pager <tab>  "<sync-mailbox><imap-fetch-mail>"  "sync and fetch imap
 # macro index,pager o "<shell-escape>cd ~/.mail/bin; ./offlineimap-run.sh<enter>" "run offlineimap"
 # macro index,pager O "<shell-escape>cd ~/.mail/bin; ./msmtp-run.sh<enter>"       "run msmtp"
 
+# Reload config
+macro index,pager,browser ,r "\
+<enter-command> source \$my_mutt_path/muttrc<enter>" \
+"Reload config"
+
 # Call urlview to extract URLs out of a message
 macro index,pager,attach,compose ,u "\
 <enter-command> set my_pipe_decode=\$pipe_decode pipe_decode<return>\
@@ -31,7 +36,7 @@ macro index,pager,attach,compose ,u "\
 "call urlview to extract URLs out of a message"
 
 # View with w3m
-macro index,pager ,b "\
+macro index,pager ,t "\
 <enter-command> set my_pipe_decode=\$pipe_decode pipe_decode<return>\
 <enter-command> set my_wait_key=\$wait_key; unset wait_key<return>\
 <pipe-message>w3m<return>\
@@ -58,10 +63,6 @@ bind index G         last-entry
 
 bind index <space>   collapse-thread
 bind index /         limit  # limit instead of search in index
-
-# Jump between inboxes
-macro index - "<change-folder>$my_folder_sg<return>" "jump to sg inbox"
-macro index = "<change-folder>$my_folder_tw<return>" "jump to tw inbox"
 
 # Ctrl-R to mark all as read
 # macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all messages as read"
