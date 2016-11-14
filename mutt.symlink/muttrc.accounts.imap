@@ -3,7 +3,7 @@
 # ----------------------------------------------------
 
 set realname = "Serge Gebhardt"
-source $my_mutt_path/muttrc.accounts.private
+source $my_mutt_path/muttrc.accounts.imap.private
 
 set my_folder_sg = "imaps://$my_address_sg@imap.gmail.com/"
 set my_folder_tw = "imaps://$my_address_tw@imap.gmail.com/"
@@ -36,7 +36,7 @@ folder-hook $my_folder_sg "\
     set my_pass    = $my_pass_sg; \
     set my_folder  = $my_folder_sg; \
     set hostname   = gmail.com; \
-    source $my_mutt_path/muttrc.accounts.dynamic"
+    source $my_mutt_path/muttrc.accounts.imap.dynamic"
 
 folder-hook $my_folder_tw "\
     set my_account = tw; \
@@ -44,4 +44,4 @@ folder-hook $my_folder_tw "\
     set my_pass    = $my_pass_tw; \
     set my_folder  = $my_folder_tw; \
     set hostname   = thoughtworks.com; \
-    source $my_mutt_path/muttrc.accounts.dynamic"
+    source $my_mutt_path/muttrc.accounts.imap.dynamic"

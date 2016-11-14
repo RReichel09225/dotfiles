@@ -41,4 +41,4 @@ set smtp_authenticators = "gssapi:login"
 # Source separate configs ----------------------------
 # ----------------------------------------------------
 
-source $my_mutt_path/muttrc.accounts.dynamic.keybindings
+source $my_mutt_path/muttrc.accounts.imap.dynamic.keybindings

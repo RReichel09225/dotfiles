@@ -42,7 +42,7 @@ set move = no
 
 # Mutt uses this folder for temporary files, such as attachments, verifying
 # signatures, etc. Better to put this in a known location (chmod'ed 700)
-set tmpdir="$my_mutt_path/tmp"
+set tmpdir = "$my_mutt_path/tmp"
 
 # Don't save outgoing messages to $record since Gmail will do this. When this
 # option is enabled, it sometimes leads to duplicates and lost X-Label
@@ -88,7 +88,7 @@ set maildir_trash = yes
 # Source separate configs ----------------------------
 # ----------------------------------------------------
 
-source $my_mutt_path/muttrc.accounts
+source $my_mutt_path/muttrc.accounts.imap
 source $my_mutt_path/muttrc.ui
 source $my_mutt_path/muttrc.keybindings
 source $my_mutt_path/muttrc.plugins
