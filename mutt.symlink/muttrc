@@ -29,7 +29,7 @@ set assumed_charset = "iso-8859-1"
 
 # Make sure Vim knows it's composing an UTF-8 encoded message. Jump to first
 # empty line. Add -c 'startinsert' to go directly into insert mode.
-set editor="vim -c 'set syntax=mail ft=mail enc=utf-8' -c 'normal gg}'"
+set editor="vim -c 'set syntax=mail ft=mail enc=utf-8 spell spelllang=en_us,de,fr,pt_br' -c 'normal gg}'"
 
 # Use mutt mailcap
 set mailcap_path = "$my_mutt_path/mailcap"
