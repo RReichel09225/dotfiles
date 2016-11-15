@@ -21,8 +21,13 @@ macro index,pager <tab>  "<sync-mailbox><imap-fetch-mail>"  "sync and fetch imap
 # macro index,pager o "<shell-escape>cd ~/.mail/bin; ./offlineimap-run.sh<enter>" "run offlineimap"
 # macro index,pager O "<shell-escape>cd ~/.mail/bin; ./msmtp-run.sh<enter>"       "run msmtp"
 
-# Reload config
+# Reload ui config
 macro index,pager,browser ,r "\
+<enter-command> source \$my_mutt_path/muttrc.ui<enter>" \
+"Reload ui config"
+
+# Reload config
+macro index,pager,browser ,R "\
 <enter-command> source \$my_mutt_path/muttrc<enter>" \
 "Reload config"
 
