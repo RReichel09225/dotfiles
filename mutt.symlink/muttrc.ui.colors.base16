@@ -150,11 +150,11 @@ color underline     black           default
 ## highlight *bold*
 # color body          yellow          default         "[ ][*][^*]*[*][ ]?"
 # color body          yellow          default         "[ ]?[*][^*]*[*][ ]"
-color body          blue            default         "(^|[[:space:][:punct:]])\\*[^*]+\\*([[:space:][:punct:]]|$)"
+color body          brightgreen     default         "(^|[[:space:][:punct:]])\\*[^*]+\\*([[:space:][:punct:]]|$)"
 mono  body          bold                            "(^|[[:space:][:punct:]])\\*[^*]+\\*([[:space:][:punct:]]|$)"
 
 # highlight /italic/ (sometimes gets directory names)
-color body          blue            default         "(^|[[:space:][:punct:]])/[^/]+/([[:space:][:punct:]]|$)"
+color body          brightgreen     default         "(^|[[:space:][:punct:]])/[^/]+/([[:space:][:punct:]]|$)"
 mono body           underline                       "(^|[[:space:][:punct:]])/[^/]+/([[:space:][:punct:]]|$)"
 
 # Border lines.
