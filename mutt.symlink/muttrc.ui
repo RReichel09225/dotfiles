@@ -1,3 +1,12 @@
+# vim: filetype=muttrc
+
+# ----------------------------------------------------
+# General UI Options ---------------------------------
+# ----------------------------------------------------
+
+set date_format = "%m/%d"
+
+
 # ----------------------------------------------------
 # Status Bar Options ---------------------------------
 # ----------------------------------------------------
@@ -10,7 +19,6 @@ set status_format = "-%r- %f [Msgs:%?M?%M/?%m%?n? New:%n?%?o? Old:%o?%?d? Del:%d
 # Index View Options ---------------------------------
 # ----------------------------------------------------
 
-set date_format = "%m/%d"
 # requires patches "Conditional Dates" and "Nested If"
 set index_format = "%4C  %Z  %<[y?%<[m?%<[d?%[%H:%M ]&%[%a %d]>&%[%b %d]>&%[%y-%m ]>  %-20.20L (%?l?%4l&%4c?) %-50.50s %?Y?[%y]?"
 set sort = threads                         # like gmail
