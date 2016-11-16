@@ -97,15 +97,15 @@ mono  error         bold
 # color index         brightgreen     default         "~A!~N!~T!~p!~Q!~F!~D!~P"   # the rest
 # color index         J_base          default         "~A~N!~T!~p!~Q!~F!~D"       # the rest, new
 color index         white           default         "~A"                        # all messages
-color index         brightwhite     default         "(~N|~U)!~p"                # new or unread not to me
-color index         brightblue      default         "(~N|~U)~p"                 # new or unread to me
+color index         brightwhite     default         "!~p(~N|~U|(~v~(~N|~U)))"   # new or unread not to me
+color index         brightblue      default         "~p(~N|~U|(~v~(~N|~U)))"    # new or unread to me
 color index         green           default         "(~Q|~P)"                   # (from me or replied)
-color index         brightgreen     default         "(~Q|~P)(~N|~U)"            # (from me or replied) and (new or unread)
+color index         brightgreen     default         "(~Q|~P)(~N|~U|(~v~(~N|~U)))" # (from me or replied) and (new or unread)
 color index         magenta         default         "~F"                        # flagged
-color index         brightmagenta   default         "~F(~N|~U)"                 # flagged (new or unread)
+color index         brightmagenta   default         "~F(~N|~U|(~v~(~N|~U)))"    # flagged (new or unread)
 color index         default         red             "(~=|~E|~S)"                # duplicate, expired or superseded
 color index         red             default         "~D"                        # deleted
-color index         yellow          default         "~T"                        # tagged messages
+color index         brightyellow    default         "~T"                        # tagged messages
 
 # ## colors for threads
 # color index         default         color18         "~v"                        # messages part of a collapsed thread
