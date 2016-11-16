@@ -13,6 +13,8 @@ bind generic,index x tag-entry    # tag with x
 bind pager         x tag-message  # tag with x
 
 bind index,pager c  mail          # compose new mail message
+bind index,pager ^  break-thread  # break threads in two
+bind index,pager &  link-threads  # link two (or more) threads together
 
 macro index,pager <tab>  "<sync-mailbox><imap-fetch-mail>"  "sync and fetch imap"
 
