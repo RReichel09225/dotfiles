@@ -42,6 +42,8 @@ folder-hook $my_folder_sg "\
     set my_pass    = $my_pass_sg; \
     set my_folder  = $my_folder_sg; \
     set hostname   = mail.gmail.com; \
+    unalternates   *; \
+    alternates     $my_alternates_sg; \
     source $my_mutt_path/muttrc.accounts.imap.dynamic"
 
 folder-hook $my_folder_tw "\
@@ -50,6 +52,8 @@ folder-hook $my_folder_tw "\
     set my_pass    = $my_pass_tw; \
     set my_folder  = $my_folder_tw; \
     set hostname   = thoughtworks.com; \
+    unalternates   *; \
+    alternates     $my_alternates_tw; \
     source $my_mutt_path/muttrc.accounts.imap.dynamic"
 
 # Change to the primary inbox folder
