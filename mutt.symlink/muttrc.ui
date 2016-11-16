@@ -21,7 +21,7 @@ set status_format = "-%r- %f [Msgs:%?M?%M/?%m%?n? New:%n?%?o? Old:%o?%?d? Del:%d
 
 # requires patches "Conditional Dates" and "Nested If"
 set my_subject_width = `MIN=40 MAX=80 AVAIL=$(($COLUMNS-47)) LOWER=$(($AVAIL<$MIN?$MIN:$AVAIL)); echo $(($LOWER>$MAX?$MAX:$LOWER))`
-set index_format = "%4C  %Z  %<[y?%<[m?%<[d?%[%H:%M ]&%[%a %d]>&%[%b %d]>&%[%y-%m ]>  %-20.20L (%<M?-%3M&%<l?%4l&%4c>>) %-${my_subject_width}.${my_subject_width}s%?Y? [%y]?"
+set index_format = "%4C  %Z  %<[y?%<[m?%<[d?%[%H:%M ]&%[%a %d]>&%[%b %d]>&%[%y-%m ]>  %-20.20L %<M?[+%3M]&(%<l?%4l&%4c>)> %-${my_subject_width}.${my_subject_width}s%?Y? [%y]?"
 
 set sort = threads                         # like gmail
 set sort_aux = reverse-last-date-received  # like gmail
