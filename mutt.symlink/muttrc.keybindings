@@ -10,7 +10,6 @@ bind index,pager d  noop          # don't delete with d
 
 bind generic,index,pager t noop   # do not tag with t
 bind generic,index x tag-entry    # tag with x
-bind pager         x tag-message  # tag with x
 
 bind index,pager c  mail          # compose new mail message
 bind index,pager ^  break-thread  # break threads in two
@@ -65,11 +64,30 @@ macro index,pager ,o "\
 # Index Key Bindings ---------------------------------
 # ----------------------------------------------------
 
+bind index \Ct       noop
+
 bind index gg        first-entry
 bind index G         last-entry
 
 bind index <space>   collapse-thread
 bind index /         limit  # limit instead of search in index
+bind index \Cr       toggle-read
+
+# undelete
+bind index u    undelete-message
+bind index U    undelete-pattern
+bind index \eu  undelete-thread
+bind index \eU  undelete-subthread
+
+# mark as read
+bind index \er  read-thread
+bind index \eR  read-subthread
+
+# tag/untag (tag-entry bound to 'x', see above)
+bind index t    tag-pattern
+bind index T    untag-pattern
+bind index \et  tag-thread
+bind index \eT  tag-subthread
 
 # Ctrl-R to mark all as read
 # macro index \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all messages as read"
@@ -91,6 +109,7 @@ bind pager j        next-line
 bind pager gg       top
 bind pager G        bottom
 bind pager A        view-attachments
+bind pager x        tag-message  # tag with x
 bind pager <space>  noop
 
 # Toggle line wrapping
