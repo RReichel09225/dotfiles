@@ -13,7 +13,7 @@
 # ----------------------------------------------------
 
 set from          = "Serge Gebhardt <$my_address>"
-set signature     = "$my_mutt_path/signature-$my_account"
+# set signature     = "$my_mutt_path/signature-$my_account"
 
 set folder    = $my_folder
 set spoolfile = "+INBOX"
