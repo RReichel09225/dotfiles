@@ -75,7 +75,7 @@ set forward_format = "Fwd: %s"       # format of subject when forwarding
 set forward_decode                   # decode when forwarding
 # set attribution = "On %d, %n wrote:" # format of quoting header
 # set attribution="* %n <%a> [%{%Y-%m-%d %H:%M:%S %Z}]:\n"
-set attribution="On %{%Y-%b-%d}, %n <%a> wrote:"
+set attribution="On %{%Y-%b-%d %H:%M}, %n <%a> wrote:"
 set reply_to                         # reply to Reply-To: field
 set reverse_name                     # reply as whomever it was sent to
 set include                          # include message in replies
