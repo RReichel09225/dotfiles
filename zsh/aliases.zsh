@@ -51,10 +51,10 @@ alias gbC='git checkout --orphan'
 alias gbl='git branch -vv'
 alias gbL='git branch -avv'
 
-# By default zprezto aliases gpf to git push --force
-# I find this too dangerous and prefer explicitly passing --force
-alias gpf >/dev/null 2>&1 && unalias gpf
-# alias gpF='git push --force'
+# By default zprezto aliases gpf to 'git push --force'
+# Better use --force-with-lease, see
+# https://developer.atlassian.com/blog/2015/04/force-with-lease/
+alias gpf='git push --force-with-lease'
 
 # Update the ref for head on master
 # e.g. gum <SHA>
