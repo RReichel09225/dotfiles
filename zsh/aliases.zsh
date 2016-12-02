@@ -7,6 +7,7 @@ alias d >/dev/null 2>&1 && unalias d 2>/dev/null
 alias dns-flush="dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
 
 alias als="alias | grep -i --"
+alias xargs0="tr '\n' '\0' | xargs -0"
 
 alias ack="nocorrect ack --color-lineno=yellow --color-filename=blue --color-match='black on_red'"
 
