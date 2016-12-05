@@ -118,7 +118,8 @@ macro pager ,w  "\
 <enter-command> set my_wrap_current = \$wrap<return>\
 <enter-command> set wrap = \$my_wrap_next<return>\
 <enter-command> set my_wrap_next = \$my_wrap_current<return>\
-<enter-command> unset my_wrap_current<return>" \
+<enter-command> unset my_wrap_current<return>\
+<enter-command> set ?wrap<return>" \
 "toggle line wrapping"
 
 
