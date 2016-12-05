@@ -1,2 +1,4 @@
 cache/bodies/
 cache/headers
+tmp/mutt_attach/
+tmp/mutt-*
