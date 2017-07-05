@@ -364,6 +364,7 @@ you should place your code here."
      ("wt" "New work TODO" entry
       (file+headline "~/Dropbox/Documents/orgfiles/tw.org" "Inbox")
       (file "~/Dropbox/Documents/orgfiles/capture/tpl-todo.txt")))))
+ '(org-id-link-to-org-use-id t)
  '(org-refile-targets (quote ((org-agenda-files :level . 1))))
  '(org-stuck-projects
    (quote
