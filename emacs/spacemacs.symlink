@@ -36,13 +36,18 @@ values."
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
+     html
+     markdown
+     rust
+     (osx :variables
+          osx-use-option-as-meta nil)
      helm
      ;; auto-completion
      ;; better-defaults
      emacs-lisp
-     ;; git
+     git
      ;; markdown
-     ;; org
+     org
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
@@ -83,7 +88,8 @@ values."
    ;; This variable has no effect if Emacs is launched with the parameter
    ;; `--insecure' which forces the value of this variable to nil.
    ;; (default t)
-   dotspacemacs-elpa-https t
+   ;; dotspacemacs-elpa-https t
+   dotspacemacs-elpa-https nil
    ;; Maximum allowed time in seconds to contact an ELPA repository.
    dotspacemacs-elpa-timeout 5
    ;; If non nil then spacemacs will check for updates at startup
@@ -110,7 +116,7 @@ values."
    ;; directory. A string value must be a path to an image format supported
    ;; by your Emacs build.
    ;; If the value is nil then no banner is displayed. (default 'official)
-   dotspacemacs-startup-banner 'official
+   dotspacemacs-startup-banner nil
    ;; List of items to show in startup buffer or an association list of
    ;; the form `(list-type . list-size)`. If nil then it is disabled.
    ;; Possible values for list-type are:
@@ -223,7 +229,7 @@ values."
    dotspacemacs-fullscreen-at-startup nil
    ;; If non nil `spacemacs/toggle-fullscreen' will not use native fullscreen.
    ;; Use to disable fullscreen animations in OSX. (default nil)
-   dotspacemacs-fullscreen-use-non-native nil
+   dotspacemacs-fullscreen-use-non-native t
    ;; If non nil the frame is maximized when Emacs starts up.
    ;; Takes effect only if `dotspacemacs-fullscreen-at-startup' is nil.
    ;; (default nil) (Emacs 24.4+ only)
@@ -318,9 +324,53 @@ you should place your code here."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(auto-save-default nil)
+ '(evil-want-Y-yank-to-eol nil)
+ '(ns-use-srgb-colorspace nil)
+ '(org-agenda-custom-commands
+   (quote
+    (("n" "Agenda and all TODOs"
+      ((agenda "" nil)
+       (todo "NEXT" nil)
+       (stuck "" nil)
+       (tags "+LEVEL>1+INBOX" nil)
+       (alltodo "" nil))
+      nil))))
+ '(org-agenda-files
+   (quote
+    ("~/Dropbox/Documents/orgfiles/tw.org" "~/Dropbox/Documents/orgfiles/sg.org")))
+ '(org-capture-templates
+   (quote
+    (("p" "Private captures")
+     ("pt" "New private TODO" entry
+      (file+headline "~/Dropbox/Documents/orgfiles/sg.org" "Inbox")
+      (file "~/Dropbox/Documents/orgfiles/capture/tpl-todo.txt"))
+     ("pd" "New entry in today's daily plan" checkitem
+      (file+datetree "~/Dropbox/Documents/orgfiles/sg-dailyplan.org")
+      " [ ] %a%?" :immediate-finish t :jump-to-captured t :empty-lines-after 1)
+     ("pg" "New grocery item" checkitem
+      (file+headline "~/Dropbox/Documents/orgfiles/sg.org" "Groceries")
+      " [ ] %?" :empty-lines-after 1 :kill-buffer t)
+     ("pp" "New purchase item" entry
+      (file+headline "~/Dropbox/Documents/orgfiles/sg.org" "Purchases")
+      "* %?" :empty-lines-after 1 :kill-buffer t)
+     ("pr" "New weekly review" entry
+      (file+weektree "~/Dropbox/Documents/orgfiles/sg-review.org")
+      (file "~/Dropbox/Documents/orgfiles/capture/tpl-sg-weekly-review.txt")
+      :jump-to-captured t)
+     ("w" "Work captures")
+     ("wt" "New work TODO" entry
+      (file+headline "~/Dropbox/Documents/orgfiles/tw.org" "Inbox")
+      (file "~/Dropbox/Documents/orgfiles/capture/tpl-todo.txt")))))
+ '(org-refile-targets (quote ((org-agenda-files :level . 1))))
+ '(org-stuck-projects
+   (quote
+    ("+LEVEL=1+PROJECT/-DEFERRED-DONE-CANCELLED"
+     ("NEXT")
+     nil "")))
  '(package-selected-packages
    (quote
-    (ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async))))
+    (reveal-in-osx-finder pbcopy osx-trash osx-dictionary launchctl yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode anaconda-mode pythonic web-mode tagedit slim-mode scss-mode sass-mode pug-mode less-css-mode helm-css-scss haml-mode emmet-mode org-projectile org-present org-pomodoro alert log4e gntp org-download htmlize gnuplot orgit magit-gitflow helm-gitignore evil-magit magit magit-popup git-commit smeargle gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link with-editor mmm-mode markdown-toc markdown-mode gh-md racer cargo toml-mode rust-mode ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async org-plus-contrib evil-unimpaired f s dash))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
