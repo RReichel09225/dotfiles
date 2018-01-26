@@ -31,29 +31,42 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
-     clojure
-     javascript
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
+
+     helm
+     auto-completion
+     spell-checking
+
+     emacs-lisp
+     python
+     go
+     yaml
+     ruby
+     clojure
+     javascript
      html
      markdown
      rust
+     scala
+     typescript
+     shell-scripts
+
      (osx :variables
           osx-use-option-as-meta nil)
-     helm
-     ;; auto-completion
-     ;; better-defaults
-     emacs-lisp
-     git
-     ;; markdown
+     finance
      org
+     git
+     (mu4e :variables
+           mu4e-installation-path "/usr/share/emacs/site-lisp")
+
+     ;; better-defaults
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
-     ;; spell-checking
      ;; syntax-checking
      ;; version-control
      )
@@ -90,15 +103,14 @@ values."
    ;; This variable has no effect if Emacs is launched with the parameter
    ;; `--insecure' which forces the value of this variable to nil.
    ;; (default t)
-   ;; dotspacemacs-elpa-https t
-   dotspacemacs-elpa-https nil
+   dotspacemacs-elpa-https t
    ;; Maximum allowed time in seconds to contact an ELPA repository.
    dotspacemacs-elpa-timeout 5
    ;; If non nil then spacemacs will check for updates at startup
    ;; when the current branch is not `develop'. Note that checking for
    ;; new versions works via git commands, thus it calls GitHub services
    ;; whenever you start Emacs. (default nil)
-   dotspacemacs-check-for-update nil
+   dotspacemacs-check-for-update t
    ;; If non-nil, a form that evaluates to a package directory. For example, to
    ;; use different package directories for different Emacs versions, set this
    ;; to `emacs-version'.
@@ -213,7 +225,7 @@ values."
    dotspacemacs-helm-use-fuzzy 'always
    ;; If non nil the paste micro-state is enabled. When enabled pressing `p`
    ;; several times cycle between the kill ring content. (default nil)
-   dotspacemacs-enable-paste-transient-state nil
+   dotspacemacs-enable-paste-transient-state t
    ;; Which-key delay in seconds. The which-key buffer is the popup listing
    ;; the commands bound to the current keystroke sequence. (default 0.4)
    dotspacemacs-which-key-delay 0.4
@@ -327,7 +339,13 @@ you should place your code here."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(auto-save-default nil)
+ '(create-lockfiles nil)
  '(evil-want-Y-yank-to-eol nil)
+ '(gud-gdb-command-name "gdb --annotate=1")
+ '(large-file-warning-threshold nil)
+ '(ledger-post-amount-alignment-at :decimal)
+ '(ledger-reconcile-default-date-format "%Y-%m-%d")
+ '(mu4e-maildir "/Volumes/tw")
  '(ns-use-srgb-colorspace nil)
  '(org-agenda-custom-commands
    (quote
@@ -373,7 +391,7 @@ you should place your code here."
      nil "")))
  '(package-selected-packages
    (quote
-    (clj-refactor inflections edn paredit peg cider-eval-sexp-fu cider seq queue clojure-mode web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor yasnippet multiple-cursors js2-mode js-doc coffee-mode reveal-in-osx-finder pbcopy osx-trash osx-dictionary launchctl yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode anaconda-mode pythonic web-mode tagedit slim-mode scss-mode sass-mode pug-mode less-css-mode helm-css-scss haml-mode emmet-mode org-projectile org-present org-pomodoro alert log4e gntp org-download htmlize gnuplot orgit magit-gitflow helm-gitignore evil-magit magit magit-popup git-commit smeargle gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link with-editor mmm-mode markdown-toc markdown-mode gh-md racer cargo toml-mode rust-mode ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async org-plus-contrib evil-unimpaired f s dash))))
+    (pos-tip org-mime ghub let-alist ledger-mode company-anaconda mu4e-maildirs-extension mu4e-alert ht tide typescript-mode flycheck helm-company helm-c-yasnippet fuzzy company-web web-completion-data company-tern dash-functional tern company-statistics company-shell company-go clojure-snippets auto-yasnippet ac-ispell auto-complete flyspell-correct-helm flyspell-correct auto-dictionary go-guru go-eldoc go-mode yaml-mode insert-shebang fish-mode noflet ensime company sbt-mode scala-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv rake minitest chruby bundler inf-ruby org-category-capture clj-refactor inflections edn paredit peg cider-eval-sexp-fu cider seq queue clojure-mode web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor yasnippet multiple-cursors js2-mode js-doc coffee-mode reveal-in-osx-finder pbcopy osx-trash osx-dictionary launchctl yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode helm-pydoc cython-mode anaconda-mode pythonic web-mode tagedit slim-mode scss-mode sass-mode pug-mode less-css-mode helm-css-scss haml-mode emmet-mode org-projectile org-present org-pomodoro alert log4e gntp org-download htmlize gnuplot orgit magit-gitflow helm-gitignore evil-magit magit magit-popup git-commit smeargle gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link with-editor mmm-mode markdown-toc markdown-mode gh-md racer cargo toml-mode rust-mode ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint info+ indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation hide-comnt help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async org-plus-contrib evil-unimpaired f s dash))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
