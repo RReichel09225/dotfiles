@@ -58,6 +58,7 @@ values."
      (osx :variables
           osx-use-option-as-meta nil)
      finance
+     beancount
      org
      git
      (mu4e :variables

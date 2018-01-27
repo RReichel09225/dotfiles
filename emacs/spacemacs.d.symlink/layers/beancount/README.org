@@ -1,0 +1,25 @@
+#+TITLE: beancount layer
+
+
+* Table of Contents                                        :TOC_4_gh:noexport:
+- [[#description][Description]]
+- [[#install][Install]]
+- [[#key-bindings][Key bindings]]
+
+* Description
+
+[[img/beancount.png]]
+(taken from [[https://alexjj.com/blog/2016/2/managing-my-personal-finances-with-beancount/][here]])
+
+This layer adds =beancount-mode= from [[https://bitbucket.org/blais/beancount/src/default/editors/emacs/beancount.el][here]].
+
+* Install
+To use this configuration layer, add it to your =~/.spacemacs=. You will need to
+add =beancount= to the existing =dotspacemacs-configuration-layers= list in this
+file.
+
+* Key bindings
+
+| Key Binding | Description    |
+|-------------+----------------|
+| ~SPC x x x~ | Does thing01   |
