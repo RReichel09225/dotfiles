@@ -39,7 +39,10 @@ values."
 
      helm
      auto-completion
-     spell-checking
+     (spell-checking :variables
+                     spell-checking-enable-by-default nil
+                     spell-checking-enable-auto-dictionary t
+                     enable-flyspell-auto-completion t)
 
      emacs-lisp
      python
