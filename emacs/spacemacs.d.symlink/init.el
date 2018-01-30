@@ -370,7 +370,7 @@ you should place your code here."
       (file+headline "~/Dropbox/Documents/orgfiles/sg.org" "Inbox")
       (file "~/Dropbox/Documents/orgfiles/capture/tpl-todo.txt"))
      ("pd" "New entry in today's daily plan" checkitem
-      (file+datetree "~/Dropbox/Documents/orgfiles/sg-dailyplan.org")
+      (file+olp+datetree "~/Dropbox/Documents/orgfiles/sg-dailyplan.org")
       " [ ] %a%?" :immediate-finish t :jump-to-captured t :empty-lines-after 1)
      ("pg" "New grocery item" checkitem
       (file+headline "~/Dropbox/Documents/orgfiles/sg.org" "Groceries")
@@ -379,9 +379,9 @@ you should place your code here."
       (file+headline "~/Dropbox/Documents/orgfiles/sg.org" "Purchases")
       "* %?" :empty-lines-after 1 :kill-buffer t)
      ("pr" "New weekly review" entry
-      (file+weektree "~/Dropbox/Documents/orgfiles/sg-review.org")
+      (file+olp+datetree "~/Dropbox/Documents/orgfiles/sg-review.org")
       (file "~/Dropbox/Documents/orgfiles/capture/tpl-sg-weekly-review.txt")
-      :jump-to-captured t)
+      :jump-to-captured t :tree-type week)
      ("w" "Work captures")
      ("wt" "New work TODO" entry
       (file+headline "~/Dropbox/Documents/orgfiles/tw.org" "Inbox")
