@@ -385,7 +385,13 @@ you should place your code here."
      ("w" "Work captures")
      ("wt" "New work TODO" entry
       (file+headline "~/Dropbox/Documents/orgfiles/tw.org" "Inbox")
-      (file "~/Dropbox/Documents/orgfiles/capture/tpl-todo.txt")))))
+      (file "~/Dropbox/Documents/orgfiles/capture/tpl-todo.txt"))
+     ("f" "Finance captures")
+     ("fj" "Finance Joint account captures")
+     ("fjr" "New monthly review" entry
+      (file "~/Dropbox/Documents/beancount/joint/joint-monthly-reviews.org")
+      (file "~/Dropbox/Documents/beancount/joint/org-capture/tpl-joint-monthly-review.org")
+      :empty-lines-before 1 :empty-lines-after 1 :immediate-finish t :jump-to-captured t))))
  '(org-id-link-to-org-use-id t)
  '(org-refile-targets (quote ((org-agenda-files :level . 1))))
  '(org-stuck-projects
