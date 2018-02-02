@@ -1,24 +1,35 @@
+# -*- mode: sh; -*-
+
 # Quickly change to frequently used directories
 
 local -A aliases
 aliases=(
     d        "$PROJECTS_DIR/sg"
-    g        "$PROJECTS_DIR/gma"
-    gm       "$PROJECTS_DIR/gma/mars-plus/development/app/mars-plus"
-    gmi      "$PROJECTS_DIR/gma/mars-plus-infra"
-    gmd      "$PROJECTS_DIR/gma/mars-plus-doc"
-    gmt      "$PROJECTS_DIR/gma/testrunner.mars-plus/development/app/mars-plus"
-    oc       "$PROJECTS_DIR/sg/opencash"
-    b        "$PROJECTS_DIR/sg/sgeb.me"
+    b        "$PROJECTS_DIR/sg/sgeb.io"
     tk       "$PROJECTS_DIR/sg/go-tuikit"
+
+    as       "$PROJECTS_DIR/as24"
+    as24     "$PROJECTS_DIR/as24"
+    ascl     "$PROJECTS_DIR/as24/classified-list"
+    ascs     "$PROJECTS_DIR/as24/classified-search"
+    asjd     "$PROJECTS_DIR/as24/jigsaw-docker"
+
     go       "$PROJECTS_DIR/go"
+    acdcli   "$PROJECTS_DIR/go/src/github.com/sgeb/acdcli"
+    go-acd   "$PROJECTS_DIR/go/src/github.com/sgeb/go-acd"
+
     bd       "$BRAINDUMP_DIR"
     bin      "$USR_DIR/bin"
     dotfiles "$DOTFILES_DIR"
     df       "$DOTFILES_DIR"
+    tmp      "$HOME/tmp"
 
-    acdcli   "$PROJECTS_DIR/go/src/github.com/sgeb/acdcli"
-    go-acd   "$PROJECTS_DIR/go/src/github.com/sgeb/go-acd"
+    org      "$HOME/Dropbox/Documents/orgfiles"
+    ls       "$HOME/Dropbox/Documents/ledger/serge"
+    bc       "$HOME/Dropbox/Documents/beancount"
+    bcj      "$HOME/Dropbox/Documents/beancount/joint"
+    bcs      "$HOME/Dropbox/Documents/beancount/serge"
+    bci      "$HOME/Dropbox/Documents/beancount/importers"
 )
 
 cd ${aliases[${1:-d}]}
