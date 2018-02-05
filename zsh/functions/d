@@ -26,10 +26,12 @@ aliases=(
 
     org      "$HOME/Dropbox/Documents/orgfiles"
     ls       "$HOME/Dropbox/Documents/ledger/serge"
+
     bc       "$HOME/Dropbox/Documents/beancount"
     bcj      "$HOME/Dropbox/Documents/beancount/joint"
     bcs      "$HOME/Dropbox/Documents/beancount/serge"
     bci      "$HOME/Dropbox/Documents/beancount/importers"
+    bcr      "$HOME/Dropbox/Documents/beancount/graph-report"
 )
 
 cd ${aliases[${1:-d}]}
