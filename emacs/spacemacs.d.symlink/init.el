@@ -406,6 +406,9 @@ you should place your code here."
       (file "~/Dropbox/Documents/beancount/joint/org-capture/tpl-joint-monthly-review.org")
       :empty-lines-before 1 :empty-lines-after 1 :immediate-finish t :jump-to-captured t))))
  '(org-id-link-to-org-use-id t)
+ '(org-modules
+   (quote
+    (org-bbdb org-bibtex org-docview org-gnus org-info org-irc org-mhe org-protocol org-rmail org-w3m)))
  '(org-refile-targets (quote ((org-agenda-files :level . 1))))
  '(org-stuck-projects
    (quote
