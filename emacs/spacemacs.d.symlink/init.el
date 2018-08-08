@@ -339,6 +339,13 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+  (add-hook 'beancount-mode-hook
+            (lambda ()
+              ;; Enable fill column indicator
+              (fci-mode t)
+              ;; Turn off line numbering
+              (linum-mode f)
+              (setq fill-column 80)))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
