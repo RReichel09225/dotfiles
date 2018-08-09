@@ -65,6 +65,7 @@ values."
      finance
      beancount
      org
+     sg-org
      git
      (mu4e :variables
            mu4e-installation-path "/usr/share/emacs/site-lisp")
