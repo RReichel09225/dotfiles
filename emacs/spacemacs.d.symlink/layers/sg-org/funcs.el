@@ -26,8 +26,6 @@
   (when (frame-parameter nil 'sg/org-capture-frame)
     (delete-frame)))
 
-(add-hook 'org-capture-after-finalize-hook 'sg/delete-org-capture-frame)
-
 (defun sg/move-frame-center ()
   "Move the selected frame to the center of the display."
   (interactive)
@@ -39,9 +37,3 @@
          (CX        (- (/ DWIDTH 2) (/ FWIDTH 2)))
          (CY        (- (/ DHEIGHT 2) (/ FHEIGHT 2))))
     (set-frame-position (selected-frame) CX CY)))
-
-;; Disble Helm for org-capture (do not show previous TODO titles)
-(spacemacs|use-package-add-hook helm
-  :post-config
-    (add-to-list 'helm-completing-read-handlers-alist '(org-capture))
-  )
