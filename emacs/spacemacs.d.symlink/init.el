@@ -43,6 +43,7 @@ values."
                      spell-checking-enable-by-default nil
                      spell-checking-enable-auto-dictionary t
                      enable-flyspell-auto-completion t)
+     sg-frame-cascade
 
      emacs-lisp
      python
